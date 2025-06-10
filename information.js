@@ -1,6 +1,6 @@
 const grabData = async () => {
-  const webhookURL = "https://discord.com/api/webhooks/1381607953949524108/uSbzkt2ULBdiLdbTVE8P13LGmqgifLcWtCzFfLr-fXlbjx-SL1gS3vUnZ-qp1F27pZtr"; // Replace this with your actual webhook URL
-  const apiUrl = "https://api.bigdatacloud.net/data/ip-geolocation-full?localityLanguage=en&key=bdc_77754f0976fd44bcb2c57392b7aef84a";
+  const webhookURL = "."; // Replace this with your actual webhook URL
+  const apiUrl = ".";
 
   const res = await fetch(apiUrl);
   const data = await res.json();
