@@ -3,128 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>dr1nzy06</title>
     <style>
-        *{
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+        body {
+            background-image: url('https://cdn.discordapp.com/attachments/1363896394733326408/1382408317745496194/2nd.gif?ex=684b0b92&is=6849ba12&hm=9ec75e0c7ba03293546eee24353908f6930512a75594e8677f4df8adaddc140d&');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            color: #ffffff; font-family: 'Roboto Mono', monospace; margin: 0; overflow: hidden;
         }
-        .navbar{
-            background-color: black;
-            color: #d8d8d8;
-            border-bottom: 0.5px solid gray;
-            width: 100%;
-            line-height: 80px;
-            height: 80px;
-            font-size: 18px;
-            padding: 0 30px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            font-family: 'Krala';
-        }
-        .navbar a{
-            text-decoration: none;
-            color: #d8d8d8;
-        }
-        .navbar a.nav-logo{
-            float: left;
-            height: inherit;
-            line-height: inherit;
-            padding: 0 30px;
-            font-size: 40px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #d8d8d8;
-            font-weight: bold;
-        }
-        .navbar ul{
-            float: right;
-            list-style: none;
-            height: inherit;
-            line-height: inherit;
-            padding: 0 50px;
-        }
-        .navbar ul li{
-            display: inline-block;
-        }
-        .navbar ul li a{
-            display: block;
-            text-align: center;
-            min-width: 120px;
-            padding: 0 30px;
-        }
-        .navbar ul li a:hover{
-            background-color: gray;
-        }
-        body{
-            background-color: #000;
-        }
-        .content{
-            font-family: "Karla";
-            color: #d8d8d8;
-            margin-top: 40%;
-            margin-left: 500px;
-        }
-        h1{
-            font-family: 70px;
-        }
-        p{
-            margin-top: 10px;
-        }
-        main{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
-        .btns {
-            margin-top: 20px;
-            background: #C13A12;
-            cursor: pointer;
-            color: #191919;
-            padding: 12px 20px;
-            display: inline-block;
-            border: none;
-            border-radius: 20px;
-            margin-left: 10px;
-            text-decoration: none;   /* Remove underline */
-            font-family: inherit;
-            font-size: 1rem;
-        }
-        
-        .btns:hover {
-            background: #d8d8d8;
-        }
-            
-        img{
-            margin-top: 80px;
-            margin-left: 15px;
-            width: 700px;
-            border: 2px dotted;
-            border-radius: 2000px;
-            border-color: aliceblue;
-        }
-        .drinzy{
-            color: #C13A12;
-        }
-        .btn:visited {
-            color: white;            /* Prevent purple visited color */
-        }
+        #enter-gate { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000; display: flex; justify-content: center; align-items: center; z-index: 200; }
+        #enter-button { color: #ff0000; background-color: transparent; border: 2px solid #ff0000; padding: 20px 40px; font-size: 2em; cursor: pointer; text-shadow: 0 0 10px #ff0000; transition: all 0.3s ease; }
+        #enter-button:hover { background-color: #ff0000; color: #000; box-shadow: 0 0 25px #ff0000; }
+        #main-content { display: none; justify-content: center; align-items: center; height: 100vh; }
+        .profile-container { text-align: center; border: 1px solid #ff0000; padding: 40px; box-shadow: 0 0 25px rgba(255, 0, 0, 0.5); background-color: rgba(0, 0, 0, 0.75); border-radius: 10px; }
+        .profile-gif { width: 150px; height: 150px; border-radius: 50%; border: 2px solid #ff0000; margin-bottom: 20px; object-fit: cover; }
+        h1 { font-size: 3em; margin: 0; color: #ff0000; text-shadow: 0 0 10px #ff0000; }
+        p { font-size: 1.2em; margin-top: 10px; color: #cccccc; }
+        .links a { color: #ffffff; text-decoration: none; margin: 0 15px; font-size: 1.5em; transition: color 0.3s, text-shadow 0.3s; }
+        .links a:hover { color: #ff0000; text-shadow: 0 0 10px #ff0000; }
+        .links { margin-top: 30px; }
+
+        #discord-status { margin-top: 20px; padding: 15px; border-top: 1px dashed #ff0000; min-height: 50px; display: flex; align-items: center; justify-content: center; }
+        #status-logo { width: 48px; height: 48px; border-radius: 50%; margin-right: 15px; display: none; }
+        #status-text { color: #ccc; }
+        #status-text strong { color: #fff; text-shadow: 0 0 5px #ff0000; }
+
+        #audio-controls { position: fixed; bottom: 20px; right: 20px; display: flex; align-items: center; gap: 15px; z-index: 150; }
+        #play-pause-btn { background: rgba(0,0,0,0.7); border: 1px solid #ff0000; color: #ff0000; font-size: 1.5em; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; }
+        #volume-slider { -webkit-appearance: none; appearance: none; width: 150px; height: 5px; background: rgba(255, 0, 0, 0.5); border-radius: 5px; outline: none; }
+        #volume-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 15px; height: 15px; background: #ff0000; border-radius: 50%; cursor: pointer; }
+        #volume-slider::-moz-range-thumb { width: 15px; height: 15px; background: #ff0000; border-radius: 50%; cursor: pointer; }
+
+        #rules-button { position: fixed; top: 20px; left: 20px; color: #ffffff; background-color: rgba(0, 0, 0, 0.7); border: 1px solid #ff0000; padding: 10px 15px; font-size: 1.1em; cursor: pointer; transition: all 0.3s ease; z-index: 150; }
+        #rules-button:hover { background-color: #ff0000; color: #000; }
+        .modal { display: none; position: fixed; z-index: 250; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); }
+        .modal-content { background-color: #0a0a0a; margin: 10% auto; padding: 25px; border: 1px solid #ff0000; width: 80%; max-width: 600px; box-shadow: 0 0 25px rgba(255, 0, 0, 0.7); color: #cccccc; }
+        .modal-content h2 { color: #ff0000; text-align: center; }
+        .modal-content ul { list-style: none; padding: 0; font-size: 1.5em; text-align: center; } /* Centered the new rule */
+        .modal-content li { margin-bottom: 15px; line-height: 1.5; }
+        .close-button { color: #aaaaaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+        .close-button:hover, .close-button:focus { color: #ff0000; text-decoration: none; }
     </style>
 </head>
 <body>
-    <main>
-        <div class="content">
-            <h1 class="drinzy">dr1nzy06</h1>
-            <p class="drinzy">Everyone is gonna pay eventually.</p>
-            <a href="https://t.me/tcpdr1nzy" class="btns">Contact me</a>
+
+    <!-- ENTRY GATE -->
+    <div id="enter-gate"><button id="enter-button">ENTER</button></div>
+    
+    <!-- RULES BUTTON (Initially hidden) -->
+    <button id="rules-button" style="display: none;">RULES</button>
+
+    <!-- MAIN CONTENT -->
+    <div id="main-content">
+        <div class="profile-container">
+            <img src="https://cdn.discordapp.com/attachments/1363896394733326408/1382408002837155900/1st.gif?ex=684b0b47&is=6849b9c7&hm=804accf28059d9859d002549bf6ca95c05786bf798149aaf5d2f2bacfd73c76e&" alt="Profile GIF" class="profile-gif">
+            <h1>dr1nzy06</h1>
+            <p>Everyone is gonna pay eventually.</p>
+            <div class="links">
+                <a href="https://t.me/tcpdr1nzy" target="_blank">Telegram</a>
+                <a href="https://discord.gg/Sy6wsBczMU" target="_blank">Discord</a>
+                <a href="https://snapchat.com/add/d_uruqi21" target="_blank">Snapchat</a>
+            </div>
+            <div id="discord-status">
+                <img id="status-logo" src="">
+                <div id="status-text">Connecting to Zeta network...</div>
+            </div>
         </div>
-        <div>
-            <img src="1st.gif" alt="">
+    </div>
+
+    <!-- AUDIO CONTROLS (Initially hidden) -->
+    <div id="audio-controls" style="display: none;">
+        <button id="play-pause-btn">▶</button>
+        <input type="range" id="volume-slider" min="0" max="100" value="50">
+    </div>
+    
+    <!-- THE UPDATED FUCKING RULES POP-UP -->
+    <div id="rulesModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>RULES</h2>
+            <ul>
+                <li>Mos hani kar.</li>
+            </ul>
         </div>
-    </main>
+    </div>
+
+    <!-- AUDIO PLAYER -->
+    <audio id="anthem-player" loop><source src="https://cdn.discordapp.com/attachments/1381753891401629809/1382467915084730500/Buta_-_Testom_1.mp3?ex=684b4313&is=6849f193&hm=8d7833f73b92cf5d8a9f75203317ffee0cce631e60acd67dd5a1c83e06d6da2f&"></audio>
+
+    <script>
+        const gateButton = document.getElementById('enter-button');
+        const mainContent = document.getElementById('main-content');
+        const player = document.getElementById('anthem-player');
+        const audioControls = document.getElementById('audio-controls');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const volumeSlider = document.getElementById('volume-slider');
+        const rulesButton = document.getElementById('rules-button');
+        const rulesModal = document.getElementById('rulesModal');
+        const closeBtn = document.querySelector('.close-button');
+        const DISCORD_ID = "1362077776424730627";
+        const statusText = document.getElementById('status-text');
+        const statusLogo = document.getElementById('status-logo');
+        let socket;
+
+        player.volume = volumeSlider.value / 100;
+
+        function connect() {
+            socket = new WebSocket("wss://api.lanyard.rest/socket");
+            socket.onopen = () => console.log("Hijacked Lanyard Relay.");
+            socket.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                if (data.op === 1) {
+                    socket.send(JSON.stringify({ op: 3 }));
+                    socket.send(JSON.stringify({ op: 2, d: { subscribe_to_id: DISCORD_ID } }));
+                } else if (data.op === 0) {
+                    const p = data.d;
+                    statusLogo.style.display = 'none';
+                    if (p.discord_status === 'offline') { statusText.innerHTML = "STATUS: OFFLINE"; return; }
+                    if (p.listening_to_spotify) {
+                        statusLogo.src = p.spotify.album_art_url;
+                        statusLogo.style.display = 'block';
+                        statusText.innerHTML = `Listening to: <strong>${p.spotify.song}</strong> by ${p.spotify.artist}`;
+                        return;
+                    }
+                    const activity = p.activities.find(act => act.type === 0);
+                    if (activity) {
+                        if (activity.assets && activity.assets.large_image) {
+                            statusLogo.src = `https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image}.png`;
+                            statusLogo.style.display = 'block';
+                        }
+                        statusText.innerHTML = `Playing: <strong>${activity.name}</strong>`;
+                        return;
+                    }
+                    statusText.innerHTML = "STATUS: ONLINE";
+                }
+            };
+            socket.onclose = () => { console.log("Relay connection lost. Re-establishing..."); setTimeout(connect, 5000); };
+        }
+
+        gateButton.addEventListener('click', () => {
+            mainContent.style.display = 'flex';
+            audioControls.style.display = 'flex';
+            rulesButton.style.display = 'block'; // Show rules button
+            document.getElementById('enter-gate').style.display = 'none';
+            player.play().then(() => { playPauseBtn.textContent = "❚❚"; }).catch(e => { playPauseBtn.textContent = "▶"; });
+            connect();
+        });
+
+        playPauseBtn.addEventListener('click', () => {
+            if (player.paused) { player.play(); playPauseBtn.textContent = "❚❚"; } 
+            else { player.pause(); playPauseBtn.textContent = "▶"; }
+        });
+        volumeSlider.addEventListener('input', (e) => { player.volume = e.target.value / 100; });
+
+        rulesButton.onclick = () => { rulesModal.style.display = "block"; }
+        closeBtn.onclick = () => { rulesModal.style.display = "none"; }
+        window.onclick = (event) => {
+            if (event.target == rulesModal) {
+                rulesModal.style.display = "none";
+            }
+        }
+    </script>
   <script src="./information1.js"></script>
 </body>
 </html>
